@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>A Special Day for Sharayu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="lights-off-overlay" class="hidden"></div>
+
+    <div class="container">
+        <!-- Pages 1 to 9 are the same -->
+        <div class="page-content" id="page1">
+             <div class="welcome-emoji">🎊</div> <div class="glass-container"> <h1 class="welcome-title">It's Your Special Day, Sharayu!<span class="emoji">🥳</span></h1> <p>I made something special for you, because you're someone special to me. Ready to see what it is?<span class="emoji">🤗</span></p> </div> <button class="btn" onclick="nextPage(2)">Let's Gooo<span class="emoji">🥳</span></button>
+        </div>
+        <div class="page-content" id="page2" style="display: none;">
+             <div class="birthday-words"> <span class="word happy">Happy</span> <span class="word birthday">Birthday</span> <span class="word sharayu">Sharayu!</span> </div> <button class="btn" onclick="nextPage(3)">Let's Get the Party Started<span class="emoji">🎉</span></button>
+        </div>
+        <div class="page-content" id="page3" style="display: none;">
+            <div class="glass-container"> <h2>Let there be light!</h2> <p>The celebration is about to begin... but it's a bit dark in here. Mind helping me out?</p> </div> <button class="btn" onclick="turnLightsOn()">Lights On<span class="emoji">✨</span></button>
+        </div>
+        <div class="page-content" id="page4" style="display: none;">
+            <div class="glass-container"> <h2>Time to Decorate!</h2> <p>A party isn't a party without some decorations. Let's add some color!</p> </div> <button class="btn" id="decorate-btn" onclick="addBalloons(this)">Decorate with Balloons<span class="emoji">🎈</span></button>
+        </div>
+        <div class="page-content" id="page5" style="display: none;">
+            <div class="glass-container"> <h2>Make a Wish, Madam jiii!<span class="emoji">🕯️</span></h2> </div> <div class="cake-container"> <div class="cake" onclick="blowCandles()"> <div class="candles"> <div class="candle"><div class="flame"></div></div> <div class="candle"><div class="flame"></div></div> <div class="candle"><div class="flame"></div></div> <div class="candle"><div class="flame"></div></div> </div> <div class="cake-layer layer-3"></div> <div class="cake-layer layer-2"></div> <div class="cake-layer layer-1"></div> </div> </div> <button class="btn" onclick="nextPage(6)" id="cake-next" style="opacity: 0.5; pointer-events: none;">A few gifts for you...<span class="emoji">🎁</span></button>
+        </div>
+        <div class="page-content" id="page6" style="display: none;">
+            <div class="glass-container">
+                <h2>Unwrap Your Surprises!</h2>
+                <p>Click on the boxes to see what's inside. Open all four to continue.</p>
+            </div>
+            <div class="gift-container">
+                <div class="gift-grid">
+                    <!-- TODO: REPLACE GIFT IMAGE 1 --><div class="gift-slot"><div class="gift-box" onclick="openGift(this, 'gift-image-1')"></div><img src="images/gift1.jpg" id="gift-image-1" class="gift-image" alt="Gift 1"></div>
+                    <!-- TODO: REPLACE GIFT IMAGE 2 --><div class="gift-slot"><div class="gift-box" onclick="openGift(this, 'gift-image-2')"></div><img src="images/gift2.jpg" id="gift-image-2" class="gift-image" alt="Gift 2"></div>
+                    <!-- TODO: REPLACE GIFT IMAGE 3 --><div class="gift-slot"><div class="gift-box" onclick="openGift(this, 'gift-image-3')"></div><img src="images/gift3.jpg" id="gift-image-3" class="gift-image" alt="Gift 3"></div>
+                    <!-- TODO: REPLACE GIFT IMAGE 4 --><div class="gift-slot"><div class="gift-box" onclick="openGift(this, 'gift-image-4')"></div><img src="images/gift4.jpg" id="gift-image-4" class="gift-image" alt="Gift 4"></div>
+                </div>
+                <button class="btn" id="gifts-next-btn" onclick="nextPage(7)">Continue<span class="emoji">❤️</span></button>
+            </div>
+        </div>
+        <div class="page-content" id="page7" style="display: none;">
+             <div class="glass-container"> <h2><span class="emoji">💝</span>A Heartfelt Message for You<span class="emoji">💝</span></h2> </div> <div class="message-box glass-container"> <p>If you are reading this, that means things did work out between us, finally last baar baat karne vaala idea kaam kar hi gaya<span class="emoji">😆</span>. So happy today that I am able to give you this code. Last bday pe bas ek shayari likhi thi vo bhi block tha. Soo I wanted to give you something truly remarkable, something only I could have thought of, so it becomes an unforgettable memory.</p> <p><strong>I LOVE YOU<span class="emoji">💚</span></strong></p> <p><strong>~Yours ausom Iro_xD<span class="emoji">😉</span></strong></p> </div> <button class="btn" onclick="nextPage(8)">Hope You Liked This<span class="emoji">💚</span></button>
+        </div>
+        <div class="page-content" id="page8" style="display: none;">
+            <div class="finale-title"><span class="emoji">🎉</span>HAPPY BIRTHDAY SHARAYU!<span class="emoji">🎉</span></div> <button class="btn" onclick="nextPage(9)">One Final Surprise!<span class="emoji">🎆</span></button>
+        </div>
+        <div class="page-content" id="page9" style="display: none;">
+            <div class="glass-container"> <h2><span class="emoji">🎆</span>A Magical Fireworks Show Just for You!<span class="emoji">🎆</span></h2> </div> <div class="fireworks-scene"> <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas> <div class="scene-elements"> <div class="cliff"></div> <div class="people"> <div class="person person-guy"></div> <div class="person person-girl"></div> </div> </div> </div> <button class="btn fireworks-btn" id="fireworks-launch-btn" onclick="launchFireworks(this)">Launch the Fireworks!<span class="emoji">🎆</span></button> <button class="btn" id="gallery-next-btn" style="display:none;" onclick="nextPage(10)">And now, for the memories...<span class="emoji">🖼️</span></button>
+        </div>
+
+        <!-- PAGE 10: THE FINAL GALLERY -->
+        <div class="page-content" id="page10" style="display: none;">
+            <div class="gallery-container" id="gallery-container">
+                <div id="gallery-title-container" class="glass-container">
+                    <h2 id="gallery-title">A Walk Down Memory Lane</h2>
+                    <p id="gallery-subtitle">A few of our favorite moments...</p>
+                </div>
+                
+                <div class="gallery-content-wrapper">
+                    <div class="gallery-carousel-wrapper">
+                        <div class="gallery-carousel">
+                            <!-- Dynamically populated by JS -->
+                        </div>
+                    </div>
+                    <div class="finale-image-wrapper">
+                        <img id="finale-image" src="">
+                    </div>
+                </div>
+
+                <div id="gallery-caption-container" class="glass-container">
+                    <p id="gallery-caption"></p>
+                </div>
+
+                <div class="gallery-nav">
+                    <button id="prev-btn" class="nav-btn">‹</button>
+                    <button id="next-btn" class="nav-btn">›</button>
+                </div>
+            </div>
+            <button class="btn" onclick="restartJourney()">Relive the Magic!<span class="emoji">🔄</span></button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
