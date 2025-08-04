@@ -1,10 +1,10 @@
 // --- TODO: ADD YOUR GALLERY IMAGE PATHS AND CAPTIONS HERE ---
 const galleryData = [
-    { src: "images/gallery1.jpg", caption: "Caption for the first photo." },
+    { src: "images/gallery1.jpg", caption: "Photo so cute, meri jaan le lega." },
     { src: "images/gallery2.jpg", caption: "Caption for the second photo." },
-    { src: "images/gallery3.jpg", caption: "A special memory here." },
-    { src: "images/gallery4.jpg", caption: "And another great moment." },
-    { src: "images/gallery5.jpg", caption: "And this one... this one is my favorite. Here's to making many more. ❤️" } // The last image.
+    { src: "images/gallery3.jpg", caption: "Blocked tha but, ngl you look the best here" },
+    { src: "images/gallery4.jpg", caption: "Yea yea, tune pehnaya tha, march 2025 tak tha saath me" },
+    { src: "images/gallery5.jpg", caption: "Ohk, so with this photo, it is the end of this gift. Gave it my absolute all to create this in months. Imma delete every single photo and memory of you from my phone and insta too (promised). Happy to know you are happy in your life. Wishing the best for your future. And here I let go all memories, happily! 💚" } // The last image.
 ];
 
 // --- Global Variables & DOM Elements ---
@@ -105,7 +105,7 @@ function openGift(giftBoxElement, imageId) { if (giftBoxElement.classList.contai
 function triggerCircleAnimation() { document.querySelectorAll('.gift-image').forEach(img => img.classList.add('in-circle')); document.getElementById('gifts-next-btn').classList.add('visible'); }
 function turnLightsOn() { overlay.classList.add('hidden'); setTimeout(() => { nextPage(4); }, 1000); }
 function addBalloons(button) { button.disabled = true; const colors = ['#ff6b35', '#ffd700', '#fd79a8', '#74b9ff', '#00b894']; for (let i = 0; i < 10; i++) { const balloon = document.createElement('div'); balloon.className = 'balloon'; balloon.style.backgroundColor = colors[i % colors.length]; balloon.style.left = Math.random() * 90 + 'vw'; balloon.style.animationDelay = Math.random() * 2 + 's'; document.body.appendChild(balloon); setTimeout(() => balloon.remove(), 6000); } setTimeout(() => { nextPage(5); }, 2000); }
-function blowCandles() { if (candlesBlown) return; candlesBlown = true; document.querySelectorAll('.flame').forEach(flame => flame.classList.add('blown')); document.getElementById('cake-next').style.opacity = '1'; document.getElementById('cake-next').style.pointerEvents = 'auto'; startConfetti(); showCustomAlert('🎉 WISH GRANTED! HAPPY BIRTHDAY SHARAYU! 🎉'); }
+function blowCandles() { if (candlesBlown) return; candlesBlown = true; document.querySelectorAll('.flame').forEach(flame => flame.classList.add('blown')); document.getElementById('cake-next').style.opacity = '1'; document.getElementById('cake-next').style.pointerEvents = 'auto'; startConfetti(); showCustomAlert('🎉 WISH GRANTED! Go ahead sharayu! 🎉'); }
 function createFloatingHearts() { for (let i = 0; i < 20; i++) { setTimeout(() => { const heart = document.createElement("div"); heart.className = "sg-heart"; heart.style.left = Math.random() * 100 + "vw"; heart.style.animationDuration = Math.random() * 2 + 3 + "s"; document.body.appendChild(heart); setTimeout(() => heart.remove(), 5000); }, i * 150); } }
 function startConfetti() { const container = document.createElement('div'); container.className = 'confetti-container'; document.body.appendChild(container); const colors = ['#ff6b35', '#ffd700', '#74b9ff', '#fd79a8', '#00b894']; for (let i = 0; i < 70; i++) { const confetti = document.createElement('div'); confetti.className = 'confetti'; confetti.style.left = Math.random() * 100 + '%'; confetti.style.animationDelay = Math.random() * 4 + 's'; confetti.style.backgroundColor = colors[Math.floor(Math.random() * 5)]; container.appendChild(confetti); } setTimeout(() => container.remove(), 5000); }
 
@@ -115,7 +115,7 @@ function launchFireworks(button) {
     canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight;
     for (let i = 0; i < 8; i++) { setTimeout(() => launchFirework(canvas, ctx), i * 700); }
     setTimeout(() => {
-        showCustomAlert('🎆 What a spectacular show!');
+        showCustomAlert('🎆 Fireworks weren't as spectacular as you! Absolutely Enchanting');
         button.style.display = 'none'; document.getElementById('gallery-next-btn').style.display = 'block';
     }, 8000);
 }
