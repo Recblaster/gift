@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prev-btn').addEventListener('click', () => navigateGallery(-1));
     nextBtn.addEventListener('click', () => navigateGallery(1));
     
-    galleryData.forEach(item => {
+    // Create carousel items dynamically from all but the last image
+    galleryData.slice(0, -1).forEach(item => {
         const div = document.createElement('div');
         div.className = 'gallery-item';
         const img = document.createElement('img');
@@ -84,8 +85,10 @@ function updateGalleryState() {
 }
 
 function updateCarouselVisuals() {
+    // This function only controls the carousel visuals
     const carouselItems = galleryCarousel.querySelectorAll('.gallery-item');
     carouselItems.forEach((item, index) => {
+        // Here, the index is relative to the carousel items only (0 to 3)
         item.classList.remove('active', 'prev', 'next', 'hidden');
         let newIndex = (index - galleryCurrentIndex + carouselItems.length) % carouselItems.length;
         if (newIndex === 0) item.classList.add('active');
@@ -137,4 +140,4 @@ function restartJourney() {
     document.querySelectorAll('.gift-image').forEach(img => { img.classList.remove('revealed'); img.classList.remove('in-circle'); });
     document.getElementById('gifts-next-btn').classList.remove('visible');
     showGallery();
-}
+                                                         }
