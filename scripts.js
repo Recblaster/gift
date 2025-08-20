@@ -1,14 +1,14 @@
 // --- TODO: ADD YOUR GALLERY IMAGE PATHS AND CAPTIONS HERE ---
 const galleryData = [
     { src: "images/gallery1.jpg", caption: "Photo so cute, meri jaan le lega." },
-    { src: "images/gallery2.jpg", caption: "Caption for the second photo." },
+    { src: "images/gallery2.jpg", caption: "This is legit my favourite pfp of yours." },
     { src: "images/gallery3.jpg", caption: "Blocked tha but, ngl you look the best here" },
-    { src: "images/gallery4.jpg", caption: "Yea yea, tune pehnaya tha, march 2025 tak tha saath me" },
-    { src: "images/gallery5.jpg", caption: "Caption for photo 5" },
-    { src: "images/gallery6.jpg", caption: "Caption for photo 6" },
-    { src: "images/gallery7.jpg", caption: "Caption for photo 7" },
-    { src: "images/gallery8.jpg", caption: "Caption for photo 8" },
-    { src: "images/gallery9.jpg", caption: "Ohk, so with this photo, it is the end of this gift. Gave it my absolute all to create this in months. Imma delete every single photo and memory of you from my phone and insta too (promised). Happy to know you are happy in your life. Wishing the best for your future. And here I let go all memories, happily! 💚" } // The last image.
+    { src: "images/gallery4.jpg", caption: "Yea yea, tune pehnaya tha, march 2025 tak tha saath me.(dost ko dediya phir)" },
+    { src: "images/gallery5.jpg", caption: "Ahem Ahem prank yaad hai? Pakad liya tha 😛" },
+    { src: "images/gallery6.jpg", caption: "What were you called again? Her, 'Mau'😉" },
+    { src: "images/gallery7.jpg", caption: "OHHH GODDD 😶💗" },
+    { src: "images/gallery8.jpg", caption: "The smile is 🤌🏻" },
+    { src: "images/gallery9.jpg", caption: "Ohk, so with this photo, it is the end of this gift. Gave it my absolute all to create this in months. Imma delete every single photo and memory of you from my phone and insta too (promised). Happy to know you are happy in your life. Keep Smiling, may it be me or someone else Wishing the best for your future. And here I let go all memories, happily! 💚" } // The last image.
 ];
 
 // --- Global Variables & DOM Elements ---
