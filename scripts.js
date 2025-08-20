@@ -4,7 +4,11 @@ const galleryData = [
     { src: "images/gallery2.jpg", caption: "Caption for the second photo." },
     { src: "images/gallery3.jpg", caption: "Blocked tha but, ngl you look the best here" },
     { src: "images/gallery4.jpg", caption: "Yea yea, tune pehnaya tha, march 2025 tak tha saath me" },
-    { src: "images/gallery5.jpg", caption: "Ohk, so with this photo, it is the end of this gift. Gave it my absolute all to create this in months. Imma delete every single photo and memory of you from my phone and insta too (promised). Happy to know you are happy in your life. Wishing the best for your future. And here I let go all memories, happily! 💚" } // The last image.
+    { src: "images/gallery5.jpg", caption: "Caption for photo 5" },
+    { src: "images/gallery6.jpg", caption: "Caption for photo 6" },
+    { src: "images/gallery7.jpg", caption: "Caption for photo 7" },
+    { src: "images/gallery8.jpg", caption: "Caption for photo 8" },
+    { src: "images/gallery9.jpg", caption: "Ohk, so with this photo, it is the end of this gift. Gave it my absolute all to create this in months. Imma delete every single photo and memory of you from my phone and insta too (promised). Happy to know you are happy in your life. Wishing the best for your future. And here I let go all memories, happily! 💚" } // The last image.
 ];
 
 // --- Global Variables & DOM Elements ---
@@ -13,8 +17,8 @@ let fireworks = []; let particles = []; let animationId = null;
 const overlay = document.getElementById('lights-off-overlay');
 let galleryCurrentIndex = 0;
 let galleryItems;
-let galleryContainer, galleryCarousel, galleryNav, galleryCaption, carouselWrapper, finaleImage, galleryTitle, gallerySubtitle, nextBtn;
-let isGalleryInitialized = false; // The key to fixing the bug
+let galleryContainer, galleryCarousel, galleryNav, galleryCaption, carouselWrapper, finaleImage, galleryTitle, gallerySubtitle;
+let isGalleryInitialized = false;
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeGallery() {
-    // This function will only run ONCE when the gallery is first opened.
+    if (isGalleryInitialized) return; // Prevent re-initialization
+
     galleryContainer = document.getElementById('gallery-container');
     galleryCarousel = document.querySelector('.gallery-carousel');
     galleryNav = document.querySelector('.gallery-nav');
@@ -31,10 +36,12 @@ function initializeGallery() {
     finaleImage = document.getElementById('finale-image');
     galleryTitle = document.getElementById('gallery-title');
     gallerySubtitle = document.getElementById('gallery-subtitle');
-    nextBtn = document.getElementById('next-btn');
 
     document.getElementById('prev-btn').addEventListener('click', () => navigateGallery(-1));
-    nextBtn.addEventListener('click', () => navigateGallery(1));
+    document.getElementById('next-btn').addEventListener('click', () => navigateGallery(1));
+    
+    // Clear any previous items before creating new ones
+    galleryCarousel.innerHTML = ''; 
     
     // Create carousel items dynamically from all but the last image
     galleryData.slice(0, -1).forEach(item => {
@@ -46,7 +53,7 @@ function initializeGallery() {
         galleryCarousel.appendChild(div);
     });
     galleryItems = document.querySelectorAll('.gallery-item');
-    isGalleryInitialized = true; // Set flag to true so it doesn't run again
+    isGalleryInitialized = true;
 }
 
 // --- Page Navigation ---
@@ -60,7 +67,7 @@ function nextPage(pageNumber) {
     if (pageNumber === 7) { createFloatingHearts(); }
     if (pageNumber === 10) {
         if (!isGalleryInitialized) {
-            initializeGallery(); // Initialize the gallery on the first visit
+            initializeGallery();
         }
         showGallery();
     }
@@ -85,7 +92,7 @@ function updateGalleryState() {
             gallerySubtitle.textContent = ""; 
             finaleImage.src = galleryData[galleryCurrentIndex].src;
         } else {
-            galleryTitle.textContent = "A Walk Down Memory Lane";
+            galleryTitle.textContent = "A Walk Down Collection Lane";
             gallerySubtitle.textContent = "A few of my favorite pictures of you...";
             updateCarouselVisuals();
         }
@@ -148,4 +155,4 @@ function restartJourney() {
     document.querySelectorAll('.gift-image').forEach(img => { img.classList.remove('revealed'); img.classList.remove('in-circle'); });
     document.getElementById('gifts-next-btn').classList.remove('visible');
     showGallery();
-}
+                }
